@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8"> <!-- Corrected charset -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPad - Contact Us</title>
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Font: Poppins --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Configuration for Tailwind CSS
+        tailwind.config = {
+            darkMode: 'class', // Use 'class' for dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#00cfff', // Neon/Electric Blue
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-darker': '#020617', // Slate 950
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 15px 5px rgba(0, 207, 255, 0.3)',
+                        'glow-blue-sm': '0 0 8px 2px rgba(0, 207, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--tw-bg-brand-darker, #020617);
+            color: var(--tw-text-slate-200, #e2e8f0);
+            /* Added subtle dot grid background */
+            background-image: radial-gradient(rgba(0, 207, 255, 0.05) 1px, transparent 1px);
+            background-size: 1.5rem 1.5rem;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #00cfff; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00a8d1; }
+        
+        /* Custom class for form inputs with glow effect */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #0f172a; /* bg-brand-dark */
+            border: 1px solid #475569; /* border-slate-600 */
+            border-radius: 0.5rem;
+            color: #ffffff; /* text-white */
+            transition: all 0.3s ease-in-out;
+        }
+        .form-input::placeholder {
+            color: #94a3b8; /* placeholder-slate-400 */
+        }
+        .form-input:focus {
+            outline: none;
+            --tw-ring-color: #00cfff; /* focus:ring-brand-blue */
+            box-shadow: 0 0 0 2px var(--tw-ring-color);
+            border-color: transparent;
+            box-shadow: 0 0 8px 2px rgba(0, 207, 255, 0.3); /* shadow-glow-blue-sm */
+        }
+
+        /* Custom class for social icons */
+        .social-icon {
+            color: #94a3b8; /* text-slate-400 */
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            color: #00cfff; /* hover:text-brand-blue */
+            transform: scale(1.1);
+            box-shadow: 0 0 8px 2px rgba(0, 207, 255, 0.3); /* hover:shadow-glow-blue-sm */
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-brand-darker text-slate-200 flex flex-col min-h-screen">
+
+    <!-- 
+      HEADER / NAVIGATION 
+    -->
+    <header class="sticky top-0 z-50 w-full bg-brand-dark/80 backdrop-blur-md border-b border-brand-blue/20 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white">
+                    <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                    <span>PixelPad</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Products</a>
+                    <a href="about.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">About</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Contact</a>
+                </div>
+                
+                <!-- Right Side: Cart & Auth -->
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="relative text-slate-300 hover:text-brand-blue transition-colors duration-300" aria-label="Open Cart">
+                        <i data-lucide="shopping-cart"></i>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-blue text-brand-darker text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="login.html" class="hidden sm:inline-block bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="hidden sm:inline-block bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300 shadow-md hover:shadow-glow-blue-sm">
+                        Sign Up
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-slate-300" id="mobile-menu-button" aria-label="Open Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Dropdown) -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Products</a>
+                <a href="about.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Contact</a>
+                <div class="border-t border-slate-700 mt-4 pt-4 flex space-x-4">
+                     <a href="login.html" class="flex-1 text-center bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="flex-1 text-center bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+      MAIN CONTENT AREA
+    -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+
+        <!-- 
+          CONTACT VIEW 
+        -->
+        <section id="contact-view">
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- Updated Header -->
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4" style="text-shadow: 0 0 10px rgba(0,207,255,0.3);">Get In Touch</h1>
+                <p class="text-lg text-slate-300 mb-6">
+                    Have a question about our products, an order, or just want to say hi? We'd love to hear from you.
+                </p>
+                <!-- Added Gaming Quote -->
+                <p class="text-lg text-brand-blue italic font-medium mb-12">
+                    "Need a co-op partner for your questions? We're here to help you reach the next level."
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 bg-brand-dark border border-slate-700 rounded-lg shadow-lg p-8 sm:p-12">
+                
+                <!-- Contact Form -->
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="Order Inquiry" required>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="form-input" placeholder="Your message..." required></textarea>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="w-full bg-brand-blue text-brand-darker text-lg font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:bg-opacity-80 hover:shadow-glow-blue shadow-md">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Contact Details -->
+                <div class="space-y-8">
+                    <h2 class="text-3xl font-bold text-white">Contact Information</h2>
+                    <p class="text-slate-300">
+                        Our support team is available 24/7 to help you with any questions or issues.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-darker rounded-lg flex items-center justify-center border border-brand-blue/50 shadow-md">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-brand-blue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Our Office</h3>
+                                <p class="text-slate-400">123 Gamer's Way, Neo City, NC 54321</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-darker rounded-lg flex items-center justify-center border border-brand-blue/50 shadow-md">
+                                <i data-lucide="phone" class="w-5 h-5 text-brand-blue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Phone</h3>
+                                <p class="text-slate-400">(+1) 555-0123</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-darker rounded-lg flex items-center justify-center border border-brand-blue/50 shadow-md">
+                                <i data-lucide="mail" class="w-5 h-5 text-brand-blue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Email</h3>
+                                <p class="text-slate-400">support@pixelpad.dev</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="pt-6 border-t border-slate-700">
+                         <h5 class="font-semibold text-white mb-4">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="social-icon p-2"><i data-lucide="twitter"></i></a>
+                            <a href="#" class="social-icon p-2"><i data-lucide="instagram"></i></a>
+                            <a href="#" class="social-icon p-2"><i data-lucide="youtube"></i></a>
+                            <a href="#" class="social-icon p-2"><i data-lucide="facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 
+      FOOTER 
+    -->
+    <footer class="bg-brand-dark border-t border-brand-blue/20 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white mb-4">
+                        <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                        <span>PixelPad</span>
+                    </a>
+                    <p class="text-slate-400">Precision gear for the ultimate experience.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Shop</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-brand-blue">All Products</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-brand-blue">Featured</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-brand-blue">About Us</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-brand-blue">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <!-- Updated social icons to use the new class -->
+                        <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="youtube"></i></a>
+                        <a href="#" class="social-icon"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2025 PixelPad. All rights reserved. Not a real store, just a cool demo!
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      PAGE-SPECIFIC JAVASCRIPT
+    -->
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Cart Badge Update
+            const cartBadge = document.getElementById('cart-badge');
+            const updateCartBadge = () => {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                if (cartBadge) {
+                    cartBadge.textContent = totalItems;
+                }
+            };
+            updateCartBadge();
+        });
+    </script>
+
+</body>
+</html>
+

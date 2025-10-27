@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPad - Your Cart</title>
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Font: Poppins --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Configuration for Tailwind CSS
+        tailwind.config = {
+            darkMode: 'class', // Use 'class' for dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#00cfff', // Neon/Electric Blue
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-darker': '#020617', // Slate 950
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 15px 5px rgba(0, 207, 255, 0.3)',
+                        'glow-blue-sm': '0 0 8px 2px rgba(0, 207, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--tw-bg-brand-darker, #020617);
+            color: var(--tw-text-slate-200, #e2e8f0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #00cfff; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00a8d1; }
+    </style>
+</head>
+<body class="bg-brand-darker text-slate-200 flex flex-col min-h-screen">
+
+    <!-- 
+      HEADER / NAVIGATION 
+    -->
+    <header class="sticky top-0 z-50 w-full bg-brand-dark/80 backdrop-blur-md border-b border-brand-blue/20 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white">
+                    <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                    <span>PixelPad</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Products</a>
+                    <a href="about.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">About</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Contact</a>
+                </div>
+                
+                <!-- Right Side: Cart & Auth -->
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="relative text-slate-300 hover:text-brand-blue transition-colors duration-300" aria-label="Open Cart">
+                        <i data-lucide="shopping-cart"></i>
+                        <!-- You would dynamically update this count -->
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-blue text-brand-darker text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                    </a>
+                    <a href="login.html" class="hidden sm:inline-block bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="hidden sm:inline-block bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300 shadow-md hover:shadow-glow-blue-sm">
+                        Sign Up
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-slate-300" id="mobile-menu-button" aria-label="Open Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Dropdown) -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Products</a>
+                <a href="about.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Contact</a>
+                <div class="border-t border-slate-700 mt-4 pt-4 flex space-x-4">
+                     <a href="login.html" class="flex-1 text-center bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="flex-1 text-center bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+      MAIN CONTENT AREA
+    -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+
+        <!-- 
+          CART VIEW 
+        -->
+        <section id="cart-view">
+            <h1 class="text-4xl font-bold mb-8 text-white">Your Cart</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Cart Items will be dynamically injected here by cart.js -->
+                <div id="cart-items-container" class="lg:col-span-2 space-y-6">
+                    <!-- 
+                      EMPTY CART MESSAGE (Handled by cart.js)
+                    -->
+                </div>
+                
+                <!-- Cart Summary will be dynamically injected here by cart.js -->
+                <div id="cart-summary-container" class="lg:col-span-1">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 
+      FOOTER 
+    -->
+    <footer class="bg-brand-dark border-t border-brand-blue/20 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white mb-4">
+                        <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                        <span>PixelPad</span>
+                    </a>
+                    <p class="text-slate-400">Precision gear for the ultimate experience.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Shop</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-brand-blue">All Products</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-brand-blue">Featured</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-brand-blue">About Us</a></li>
+                        <li><a href="purchase-history.html" class="text-slate-400 hover:text-brand-blue">Orders</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-slate-400 hover:text-brand-blue">Contact Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="youtube"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2025 PixelPad. All rights reserved. Not a real store, just a cool demo!
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      PAGE-SPECIFIC JAVASCRIPT
+    -->
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

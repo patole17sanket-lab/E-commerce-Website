@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPad - Products</title>
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Font: Poppins --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Configuration for Tailwind CSS
+        tailwind.config = {
+            darkMode: 'class', // Use 'class' for dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#00cfff', // Neon/Electric Blue
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-darker': '#020617', // Slate 950
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 15px 5px rgba(0, 207, 255, 0.3)',
+                        'glow-blue-sm': '0 0 8px 2px rgba(0, 207, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--tw-bg-brand-darker, #020617);
+            color: var(--tw-text-slate-200, #e2e8f0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #00cfff; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00a8d1; }
+    </style>
+</head>
+<body class="bg-brand-darker text-slate-200">
+
+    <!-- 
+      HEADER / NAVIGATION 
+    -->
+    <header class="sticky top-0 z-50 w-full bg-brand-dark/80 backdrop-blur-md border-b border-brand-blue/20 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white">
+                    <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                    <span>PixelPad</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Products</a>
+                    <a href="about.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">About</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Contact</a>
+                </div>
+                
+                <!-- Right Side: Cart & Auth -->
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="relative text-slate-300 hover:text-brand-blue transition-colors duration-300" aria-label="Open Cart">
+                        <i data-lucide="shopping-cart"></i>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-blue text-brand-darker text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="login.html" class="hidden sm:inline-block bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="hidden sm:inline-block bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300 shadow-md hover:shadow-glow-blue-sm">
+                        Sign Up
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-slate-300" id="mobile-menu-button" aria-label="Open Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Dropdown) -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Products</a>
+                <a href="about.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Contact</a>
+                <div class="border-t border-slate-700 mt-4 pt-4 flex space-x-4">
+                     <a href="login.html" class="text-center flex-1 bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="text-center flex-1 bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+      MAIN CONTENT AREA
+    -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 
+          PRODUCTS VIEW 
+        -->
+        <section id="products-view">
+            <h1 class="text-4xl font-bold mb-8 text-white">All Products</h1>
+            
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                
+                <!-- Product 1 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="1" data-name="PixelPad Nebula Pro" data-price="1369" data-image="1.png">
+                    <img src="1.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">PixelPad Nebula Pro</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹1,369</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="2" data-name="PixelPad Elite v2" data-price="1489" data-image="2.png">
+                    <img src="2.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">PixelPad Elite v2</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹1,489</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="3" data-name="AuraSync RGB Pad" data-price="1659" data-image="3.png">
+                    <img src="3.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">AuraSync RGB Pad</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹1,659</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="4" data-name="RetroFighter Stick" data-price="1129" data-image="4.png">
+                    <img src="4.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">RetroFighter Stick</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹1,129</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="5" data-name="StealthGrip Mobile" data-price="3049" data-image="5.png">
+                    <img src="5.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">StealthGrip Mobile</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹3,049</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="bg-brand-dark border border-slate-700 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] transform product"
+                     data-id="6" data-name="PixelPad Classic" data-price="1029" data-image="6.png">
+                    <img src="6.png">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">PixelPad Classic</h3>
+                        <p class="text-2xl font-bold text-brand-blue mb-4">₹1,029</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-blue text-brand-darker font-medium py-2 px-4 rounded-lg hover:bg-opacity-80 transition-all duration-300 add-to-cart-btn">
+                                Add to Cart
+                            </button>
+                            <a href="product-detail.html" class="flex-1 text-center bg-slate-700 text-slate-200 font-medium py-2 px-4 rounded-lg hover:bg-slate-600 transition-all duration-300 view-details-btn">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 
+      FOOTER 
+    -->
+    <footer class="bg-brand-dark border-t border-brand-blue/20 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white mb-4">
+                        <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                        <span>PixelPad</span>
+                    </a>
+                    <p class="text-slate-400">Precision gear for the ultimate experience.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Shop</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-brand-blue">All Products</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-brand-blue">Featured</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-brand-blue">About Us</a></li>
+                        <li><a href="purchase-history.html" class="text-slate-400 hover:text-brand-blue">Orders</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-slate-400 hover:text-brand-blue">Contact Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="youtube"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2025 PixelPad. All rights reserved. Not a real store, just a cool demo!
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      PAGE-SPECIFIC JAVASCRIPT
+    -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Popup functionality for 'View Details'
+            const viewDetailButtons = document.querySelectorAll('.product .view-details-btn');
+            const popupOverlay = document.createElement('div');
+            popupOverlay.classList.add('fixed', 'inset-0', 'bg-black/70', 'z-50', 'flex', 'items-center', 'justify-center', 'hidden');
+            document.body.appendChild(popupOverlay);
+
+            const popupContent = document.createElement('div');
+            popupContent.classList.add('bg-brand-dark', 'text-white', 'p-6', 'rounded-lg', 'shadow-lg', 'max-w-lg', 'w-full', 'my-8', 'overflow-y-auto', 'max-h-[80vh]');
+            popupOverlay.appendChild(popupContent);
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.classList.add('bg-brand-blue', 'text-brand-darker', 'px-4', 'py-2', 'rounded-lg', 'hover:bg-opacity-80', 'transition-all', 'duration-300', 'mt-4');
+            closeButton.addEventListener('click', () => {
+                popupOverlay.classList.add('hidden');
+                popupContent.innerHTML = ''; // Reset content when closing
+            });
+
+            const productDetails = {
+                1: `To energize your gaming experience, this black transparent gaming pad comes with colorful RGB LED lights outlining the console and is controlled by a dedicated LED light button. Plug-and-play functions help you to connect the gamepad to your Laptop or PC with the USB connector and to your TYPE-C devices via Type-C OTG. This way, your instantaneous play mode is onset. The gamepad is equipped with dual-vibration motors that operate at high speed to produce haptic feedback, giving players realistic gaming excitement. This gamepad comes with quad front triggers which you can control with both hands and can be configured depending on the game settings. The gamepad comes with a total of 17 buttons and turbo function for rapid fire and dual analog sticks for better control. The support of D-Input and X-Input from the gamepad to the device is indicated with an LED indicator. This is also helpful for charging indications.`,
+                2: `The PixelPad Elite v2 is designed for professional gamers. It features an ergonomic design for extended gaming sessions, customizable buttons for personalized gameplay, and ultra-responsive triggers for precision control. The Elite v2 also includes advanced haptic feedback for immersive gaming and a rechargeable battery that lasts up to 20 hours on a single charge. With its sleek design and premium build quality, the Elite v2 is the ultimate gaming companion.`,
+                3: `The AuraSync RGB Pad is a must-have for RGB enthusiasts. It features dynamic lighting effects that sync with your gameplay, creating an immersive visual experience. The pad is equipped with anti-slip rubberized grips, ensuring stability during intense gaming sessions. Its lightweight design makes it portable, and the durable build ensures it withstands heavy use. The AuraSync RGB Pad is compatible with multiple platforms, making it a versatile choice for gamers.`,
+                4: `The RetroFighter Stick brings back the nostalgia of arcade gaming with a modern twist. It features a robust joystick and responsive buttons for precise control. The stick is compatible with multiple platforms, including PC and consoles, and offers customizable button mapping for a personalized gaming experience. Its compact design makes it easy to carry, and the durable build ensures it withstands intense gaming sessions.`,
+                5: `The StealthGrip Mobile is the ultimate accessory for mobile gamers. It features an ergonomic design for comfortable gameplay, a built-in cooling fan to prevent overheating, and customizable buttons for enhanced control. The grip is compatible with most smartphones and includes a rechargeable battery for extended gaming sessions. Its sleek design and premium build quality make it a must-have for mobile gaming enthusiasts.`,
+                6: `The PixelPad Classic is a budget-friendly gaming controller that doesn't compromise on quality. It features a simple yet ergonomic design, responsive buttons, and a durable build. The controller is compatible with multiple platforms, including PC and consoles, and offers plug-and-play functionality for easy setup. Its lightweight design makes it portable, and the affordable price makes it accessible to all gamers.`
+            };
+
+            viewDetailButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const product = button.closest('.product');
+                    const productId = product.getAttribute('data-id');
+                    const productName = product.getAttribute('data-name');
+                    const productPrice = product.getAttribute('data-price');
+                    const productImage = product.getAttribute('data-image');
+
+                    popupContent.innerHTML = `
+                        <img src="${productImage}" alt="${productName}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <h2 class="text-2xl font-bold mb-2">${productName}</h2>
+                        <p class="text-xl text-brand-blue mb-4">₹${productPrice}</p>
+                        <p class="text-slate-300">${productDetails[productId]}</p>
+                    `;
+                    popupContent.appendChild(closeButton);
+                    popupContent.scrollTop = 0; // Reset scroll position to the top when opening
+                    popupOverlay.classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

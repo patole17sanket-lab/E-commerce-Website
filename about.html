@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPad - About Us</title>
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Font: Poppins --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Configuration for Tailwind CSS
+        tailwind.config = {
+            darkMode: 'class', // Use 'class' for dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#00cfff', // Neon/Electric Blue
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-darker': '#020617', // Slate 950
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 15px 5px rgba(0, 207, 255, 0.3)',
+                        'glow-blue-sm': '0 0 8px 2px rgba(0, 207, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--tw-bg-brand-darker, #020617);
+            color: var(--tw-text-slate-200, #e2e8f0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #00cfff; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00a8d1; }
+    </style>
+</head>
+<body class="bg-brand-darker text-slate-200">
+
+    <!-- 
+      HEADER / NAVIGATION 
+    -->
+    <header class="sticky top-0 z-50 w-full bg-brand-dark/80 backdrop-blur-md border-b border-brand-blue/20 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white">
+                    <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                    <span>PixelPad</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Products</a>
+                    <a href="about.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">About</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-brand-blue transition-colors duration-300">Contact</a>
+                </div>
+                
+                <!-- Right Side: Cart & Auth -->
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="relative text-slate-300 hover:text-brand-blue transition-colors duration-300" aria-label="Open Cart">
+                        <i data-lucide="shopping-cart"></i>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-blue text-brand-darker text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="login.html" class="hidden sm:inline-block bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="hidden sm:inline-block bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300 shadow-md hover:shadow-glow-blue-sm">
+                        Sign Up
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-slate-300" id="mobile-menu-button" aria-label="Open Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Dropdown) -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Products</a>
+                <a href="about.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-brand-blue">Contact</a>
+                <div class="border-t border-slate-700 mt-4 pt-4 flex space-x-4">
+                     <a href="login.html" class="flex-1 text-center bg-transparent border border-brand-blue text-brand-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue hover:text-brand-darker transition-all duration-300">
+                        Login
+                    </a>
+                    <a href="signup.html" class="flex-1 text-center bg-brand-blue text-brand-darker px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-80 transition-all duration-300">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+      MAIN CONTENT AREA
+    -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 
+          ABOUT VIEW 
+        -->
+        <section id="about-view" class="max-w-4xl mx-auto">
+            
+            <!-- Hero Section -->
+            <div class="text-center p-8 bg-brand-dark border border-slate-700 rounded-lg shadow-lg">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">About PixelPad</h1>
+                <p class="text-xl text-brand-blue font-light">We're not just engineers. We're gamers.</p>
+            </div>
+
+            <!-- Our Mission -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                    <i data-lucide="target" class="text-brand-blue mr-3 w-8 h-8"></i>
+                    Our Mission
+                </h2>
+                <div class="bg-brand-dark border border-slate-700 rounded-lg p-6 space-y-4 text-lg text-slate-300">
+                    <p>
+                        PixelPad was born from a simple idea: gaming is better with the right gear. We grew tired of controllers that drifted, buttons that stuck, and designs that prioritized flash over comfort. We're a team of passionate gamers and engineers dedicated to creating high-performance, comfortable, and stylish controllers that give you the competitive edge (or just make your single-player adventures more immersive).
+                    </p>
+                    <p>
+                        Our mission is to bridge the gap between pro-level performance and everyday accessibility. We believe every gamer deserves gear that feels like an extension of themselves—reliable, responsive, and ready for any challenge.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Design Philosophy -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                    <i data-lucide="pencil-ruler" class="text-brand-blue mr-3 w-8 h-8"></i>
+                    Our Design Philosophy
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Philosophy 1 -->
+                    <div class="bg-brand-dark border border-slate-700 rounded-lg p-6">
+                        <i data-lucide="atom" class="w-12 h-12 text-brand-blue mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Precision First</h3>
+                        <p class="text-slate-400">From Hall Effect joysticks that never drift to optical switches for instant button response, every component is chosen for maximum accuracy and durability.</p>
+                    </div>
+                    <!-- Philosophy 2 -->
+                    <div class="bg-brand-dark border border-slate-700 rounded-lg p-6">
+                        <i data-lucide="hand" class="w-12 h-12 text-brand-blue mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Ergonomic Comfort</h3>
+                        <p class="text-slate-400">We obsess over contours, grip textures, and weight balance. A controller shouldn't just work well—it should feel great in your hands for hours on end.</p>
+                    </div>
+                    <!-- Philosophy 3 -->
+                    <div class="bg-brand-dark border border-slate-700 rounded-lg p-6">
+                        <i data-lucide="puzzle" class="w-12 h-12 text-brand-blue mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Total Customization</h3>
+                        <p class="text-slate-400">Your gear should adapt to your playstyle. We build in features like programmable back-paddles, interchangeable parts, and software suites that put you in control.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the Team (Fictional) -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-center text-white mb-10">Meet the Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Team Member 1 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-blue/50" src="https://placehold.co/128x128/0f172a/00cfff?text=AJ" alt="Team Member 1">
+                        <h3 class="text-xl font-semibold text-white">Alex Jensen</h3>
+                        <p class="text-brand-blue">CEO & Lead Engineer</p>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-blue/50" src="https://placehold.co/128x128/0f172a/00cfff?text=MR" alt="Team Member 2">
+                        <h3 class="text-xl font-semibold text-white">Maya Reed</h3>
+                        <p class="text-brand-blue">Head of Design</p>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-blue/50" src="https://placehold.co/128x128/0f172a/00cfff?text=KC" alt="Team Member 3">
+                        <h3 class="text-xl font-semibold text-white">Kenji Chen</h3>
+                        <p class="text-brand-blue">Firmware Wizard</p>
+                    </div>
+                    
+                    <!-- Team Member 4 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-blue/50" src="https://placehold.co/128x128/0f172a/00cfff?text=SF" alt="Team Member 4">
+                        <h3 class="text-xl font-semibold text-white">Sarah Fiels</h3>
+                        <p class="text-brand-blue">Community Manager</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 
+      FOOTER 
+    -->
+    <footer class="bg-brand-dark border-t border-brand-blue/20 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white mb-4">
+                        <i data-lucide="gamepad-2" class="text-brand-blue"></i>
+                        <span>PixelPad</span>
+                    </a>
+                    <p class="text-slate-400">Precision gear for the ultimate experience.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Shop</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-brand-blue">All Products</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-brand-blue">Featured</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-brand-blue">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-slate-400 hover:text-brand-blue">Contact Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-blue">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="youtube"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-blue"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2025 PixelPad. All rights reserved. Not a real store, just a cool demo!
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      PAGE-SPECIFIC JAVASCRIPT
+    -->
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Cart Badge Update
+            const cartBadge = document.getElementById('cart-badge');
+            const updateCartBadge = () => {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                if (cartBadge) {
+                    cartBadge.textContent = totalItems;
+                }
+            };
+            updateCartBadge();
+        });
+    </script>
+
+</body>
+</html>
